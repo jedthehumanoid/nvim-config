@@ -24,12 +24,11 @@ vim.keymap.set('i', '<M-p>', "<ESC>:", {})
 -- Quit
 vim.keymap.set('n', '<C-q>', ":q<CR>", {})
 vim.keymap.set('n', '<C-w>', ":bp<bar>bd#<CR>", {})
-vim.keymap.set('i', '<C-q>', "<ESC>:q<CR>", {})
 
 -- Undo/Redo
 vim.keymap.set('n', '<C-z>', "u", {})
 vim.keymap.set('i', '<C-z>', "<ESC>ui", {})
-vim.keymap.set('n', '<M-z>', vim.cmd('normal! redo'), {})
+vim.keymap.set('n', '<M-z>', ':redo<CR>', {})
 vim.keymap.set('i', '<M-z>', "<ESC><C-r>i", {})
 
 -- Find
