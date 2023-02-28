@@ -1,6 +1,6 @@
 require("nvim-tree").setup({
-respect_buf_cwd = true,
-renderer = {
+	respect_buf_cwd = true,
+	renderer = {
 		icons = {
 			show = {
 				file = false,
@@ -9,12 +9,12 @@ renderer = {
 				git = false,
 				modified = false,
 			},
- 			glyphs = {
+			glyphs = {
 				symlink = "",
 			}
 		}
 	}
 })
 
-vim.keymap.set('n', '<C-b>', ":NvimTreeToggle<CR>",{})
-vim.keymap.set('i', '<C-b>', "<ESC>:NvimTreeToggle<CR>",{})
+vim.keymap.set('n', '<C-b>', ":NvimTreeToggle<CR>", {})
+vim.keymap.set('i', '<C-b>', "<ESC>:NvimTreeToggle<CR>", {})
