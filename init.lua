@@ -14,6 +14,7 @@ vim.keymap.set('i', '<C-s>', "<ESC>:w<CR>a", {})
 
 -- Cut, copy, paste
 vim.keymap.set('n', '<C-v>', '"+p', {})
+vim.keymap.set('i', '<C-v>', '<ESC>"+pa', {})
 vim.keymap.set('v', '<C-c>', '"+y', {})
 vim.keymap.set('v', '<C-x>', '"+d', {})
 
@@ -29,7 +30,7 @@ vim.keymap.set('n', '<C-w>', ":bp<bar>bd#<CR>", {})
 vim.keymap.set('n', '<C-z>', "u", {})
 vim.keymap.set('i', '<C-z>', "<ESC>ui", {})
 vim.keymap.set('n', '<M-z>', ':redo<CR>', {})
-vim.keymap.set('i', '<M-z>', "<ESC><C-r>i", {})
+vim.keymap.set('i', '<M-z>', "<ESC>:redo<CR>i", {})
 
 -- Find
 vim.keymap.set('n', '<C-f>', "/", {})
