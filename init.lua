@@ -1,12 +1,12 @@
-require('plugins')
-
+-- require('packerplugins')
 vim.g.mapleader = ' '
+-- require('plugins')
+
 vim.opt.wrap = false
 vim.opt.number = true
 
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
-
 vim.cmd [[colorscheme tokyonight-night]]
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- Save
 vim.keymap.set('n', '<C-s>', ":w<CR>", {})
@@ -23,8 +23,8 @@ vim.keymap.set('n', '<M-p>', ":", {})
 vim.keymap.set('i', '<M-p>', "<ESC>:", {})
 
 -- Quit
-vim.keymap.set('n', '<C-q>', ":q<CR>", {})
-vim.keymap.set('n', '<C-w>', ":bp<bar>bd#<CR>", {})
+-- vim.keymap.set('n', '<C-q>', ":q<CR>", {})
+-- vim.keymap.set('n', '<C-w>', ":bp<bar>bd#<CR>", {})
 
 -- Undo/Redo
 vim.keymap.set('n', '<C-z>', "u", {})
