@@ -24,7 +24,9 @@ vim.keymap.set('i', '<M-p>', "<ESC>:", {})
 
 -- Quit
 -- vim.keymap.set('n', '<C-q>', ":q<CR>", {})
--- vim.keymap.set('n', '<C-w>', ":bp<bar>bd#<CR>", {})
+vim.keymap.set('n', '<leader>w', ":bd<CR>", {})
+vim.keymap.set('n', '<Tab>', ":bn<CR>", {})
+vim.keymap.set('n', '<S-Tab>', ":bp<CR>", {})
 
 -- Undo/Redo
 vim.keymap.set('n', '<C-z>', "u", {})
