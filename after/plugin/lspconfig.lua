@@ -1,4 +1,5 @@
 require 'lspconfig'.clangd.setup {}
+require 'lspconfig'.rust_analyzer.setup {}
 require 'lspconfig'.lua_ls.setup {
 	settings = {
 		Lua = {

@@ -1,9 +1,17 @@
--- require('packerplugins')
 vim.g.mapleader = ' '
--- require('plugins')
 
+CloseBuffer = function()
+	if vim.fn.bufnr('#') == vim.fn.bufnr() then
+		print("same")
+	end
+	pcall(vim.cmd, "bnext")
+	pcall(vim.cmd, "bdelete#")
+end
+
+vim.api.nvim_create_user_command('SayHello', CloseBuffer,{})
 vim.opt.wrap = false
 vim.opt.number = true
+vim.opt.clipboard = "unnamedplus"
 
 vim.cmd [[colorscheme tokyonight-night]]
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
@@ -23,8 +31,8 @@ vim.keymap.set('n', '<M-p>', ":", {})
 vim.keymap.set('i', '<M-p>', "<ESC>:", {})
 
 -- Quit
--- vim.keymap.set('n', '<C-q>', ":q<CR>", {})
-vim.keymap.set('n', '<leader>w', ":bd<CR>", {})
+vim.keymap.set('n', '<C-w>', ":bn<CR>:bw#<CR>", {})
+vim.keymap.set('n', '<leader>w', ":bn<CR>:bw#<CR>", {})
 vim.keymap.set('n', '<Tab>', ":bn<CR>", {})
 vim.keymap.set('n', '<S-Tab>', ":bp<CR>", {})
 
