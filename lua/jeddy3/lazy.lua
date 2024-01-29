@@ -10,4 +10,10 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("jeddy3.plugins")
+require("lazy").setup("jeddy3.plugins", {
+	dev = {
+		path = "~/kod/nvim-plugins",
+		patterns = { "" },
+		fallback = true
+	}
+})

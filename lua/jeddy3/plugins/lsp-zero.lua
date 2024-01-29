@@ -12,13 +12,15 @@ return {
 			local lsp_zero = require('lsp-zero')
 
 			lsp_zero.on_attach(function(client, bufnr)
-				lsp_zero.default_keymaps({ buffer = bufnr })
+				lsp_zero.default_keymaps({ buffer = bufnr, preserve_mappings = false })
 				lsp_zero.buffer_autoformat()
 			end)
 			local lspconfig = require('lspconfig')
 			lspconfig.clangd.setup({})
 			local lua_opts = lsp_zero.nvim_lua_ls()
 			lspconfig.lua_ls.setup(lua_opts)
+			lspconfig.rust_analyzer.setup({})
+			vim.diagnostic.config({ virtual_text = false })
 		end,
 	},
 
