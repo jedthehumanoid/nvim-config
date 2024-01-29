@@ -1,4 +1,7 @@
 vim.g.mapleader = ' '
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 require("jeddy3.lazy")
 
 vim.opt.wrap = false
