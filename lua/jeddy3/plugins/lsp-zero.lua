@@ -20,6 +20,29 @@ return {
 			local lua_opts = lsp_zero.nvim_lua_ls()
 			lspconfig.lua_ls.setup(lua_opts)
 			lspconfig.rust_analyzer.setup({})
+			lspconfig.tsserver.setup({})
+			lspconfig.gopls.setup({})
+			lspconfig.svelte.setup({})
+			lspconfig.pylsp.setup({
+				settings = {
+					pylsp = {
+						plugins = {
+							flake8 = {
+								enabled = true
+							},
+							pycodestyle = {
+								enabled = false
+							},
+							mccabe = {
+								enabled = false
+							},
+							pyflakes = {
+								enabled = false
+							}
+						}
+					}
+				}
+			})
 			vim.diagnostic.config({ virtual_text = false })
 		end,
 	},
