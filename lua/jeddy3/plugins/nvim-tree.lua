@@ -4,6 +4,7 @@ return {
 		require("nvim-tree").setup({
 			respect_buf_cwd = true,
 			renderer = {
+				-- Below to make it not use nerdfont graphics on everything
 				icons = {
 					show = {
 						file = false,
