@@ -35,3 +35,4 @@ vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w>h', {})
 -- Buffer wipe on leader-w
 vim.keymap.set('n', '<leader>w', '<cmd>bw<CR>', {})
 
+vim.keymap.set('n', ';', ':', {})
