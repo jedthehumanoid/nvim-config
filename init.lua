@@ -1,3 +1,4 @@
+-- Space as leader key
 vim.g.mapleader = ' '
 
 -- For nvim-tree
@@ -6,16 +7,20 @@ vim.g.loaded_netrwPlugin = 1
 
 require("jeddy3.lazy")
 
+-- Do not wrap lines
 vim.opt.wrap = false
+
+-- Row numbers
 vim.opt.number = true
 
 -- Share clipboard with system
 vim.opt.clipboard = "unnamedplus"
 
+-- smart case-insensitive searching
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- Save
+-- Save on Ctrl-S
 vim.keymap.set({ 'n', 'i' }, '<C-s>', "<cmd>w<CR>", {})
 
 -- Redo on U
@@ -35,4 +40,5 @@ vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w>h', {})
 -- Buffer wipe on leader-w
 vim.keymap.set('n', '<leader>w', '<cmd>bw<CR>', {})
 
+-- Cmd mode without shift
 vim.keymap.set('n', ';', ':', {})
