@@ -5,7 +5,8 @@ vim.g.mapleader = ' '
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require("jeddy3.lazy")
+require("config.lazy")
+require("config.lsp")
 
 -- Do not wrap lines
 vim.opt.wrap = false
@@ -41,4 +42,4 @@ vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w>h', {})
 vim.keymap.set('n', '<leader>w', '<cmd>bw<CR>', {})
 
 -- Cmd mode without shift
-vim.keymap.set('n', ';', ':', {})
+v
