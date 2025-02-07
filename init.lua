@@ -42,4 +42,4 @@ vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w>h', {})
 vim.keymap.set('n', '<leader>w', '<cmd>bw<CR>', {})
 
 -- Cmd mode without shift
-v
+vim.keymap.set('n', ';', ':', {})
