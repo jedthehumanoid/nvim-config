@@ -1,7 +1,12 @@
-<<<<<<< HEAD
+-- NOTE: to make any of this work you need a language server.
+-- If you don't know what that is, watch this 5 min video:
+-- https://www.youtube.com/watch?v=LaS32vctfOY
+
 -- Reserve a space in the gutter
 vim.opt.signcolumn = 'yes'
 
+-- Add cmp_nvim_lsp capabilities settings to lspconfig
+-- This should be executed before you configure any language server
 local lspconfig_defaults = require('lspconfig').util.default_config
 lspconfig_defaults.capabilities = vim.tbl_deep_extend(
   'force',
@@ -9,6 +14,8 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
   require('cmp_nvim_lsp').default_capabilities()
 )
 
+-- This is where you enable features that only work
+-- if there is a language server active in the file
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
@@ -27,12 +34,24 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-require('lspconfig').clangd.setup({})
-
 vim.diagnostic.config({
-  virtual_text = false,
+	virtual_text = false
 })
-
+-- You'll find a list of language servers here:
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+-- These are example language servers. 
+require('lspconfig').clangd.setup({})
+require('lspconfig').zls.setup({})
+require('lspconfig').pylsp.setup({
+pylsp = {
+  plugins = {
+    ruff = {
+      enabled = true,  -- Enable the plugin
+      executable = "/usr/bin/ruff",
+    },
+  }
+}
+})
 local cmp = require('cmp')
 
 cmp.setup({
@@ -41,43 +60,9 @@ cmp.setup({
   },
   snippet = {
     expand = function(args)
+      -- You need Neovim v0.10 to use vim.snippet
       vim.snippet.expand(args.body)
     end,
   },
   mapping = cmp.mapping.preset.insert({}),
 })
-=======
-vim.lsp.config['pylsp'] = {
-    cmd = {'pylsp' },
-    filetypes = {'python'},
-    root_markers = {'pyproject.toml'},
-    settings = {
-        pylsp = {
-            plugins = {
-                ruff = {
-                    enabled = true,
-		},
-	    }
-	}
-    }
-}
-vim.keymap.set({'v','i','n'}, '<F3>', vim.lsp.buf.format, bufopts)
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client:supports_method('textDocument/formatting') then
-      -- Format the current buffer on save
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        buffer = args.buf,
-        callback = function()
-          vim.lsp.buf.format({bufnr = args.buf, id = client.id})
-        end,
-      })
-    end
-  end,
-})
-
-vim.lsp.enable('pylsp')
-vim.lsp.enable('clangd')
-vim.lsp.enable('zls')
->>>>>>> 12e1a4c (Changes)
